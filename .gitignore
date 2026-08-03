@@ -1,4 +1,4 @@
 */bin
 */.vscode
 */.idea
-.iml
+*.iml
