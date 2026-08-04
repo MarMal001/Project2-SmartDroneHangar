@@ -6,7 +6,7 @@
 #include "Servo.h"
 #include "kernel/Logger.h"
 
-#define MAX_TIME ((long) 25000)
+#define MAX_TIME ((long) 25000) //This time is used to determine the max distance detected by the sonar -> 25000ms ~ 4 meters
 
 void wakeUp() {}
 
