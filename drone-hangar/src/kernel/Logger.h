@@ -7,6 +7,7 @@
 class LoggerService {
     
 public: 
+  void init(unsigned long baudRate);
   
   void log(const String& msg);
 };
