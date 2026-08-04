@@ -7,7 +7,7 @@ class LoggerService {
     
 public: 
     static void init(unsigned long baudRate);
-    static void log(const String& msg);
+    static void log(const String& msg); // TODO: alarm log
 
 private:
     static LoggerService instance;
