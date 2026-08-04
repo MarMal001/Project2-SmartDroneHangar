@@ -15,7 +15,7 @@ float TempSensorNTC::getTemperature() {
     float samples = 0;
     for (int i = 0; i < SAMPLING_RATE; i++) {
         samples += analogRead(pin);
-        delay(10);
+        delayMicroseconds(10000);
     }
     float average = samples * CONVERSION / SAMPLING_RATE;
     float logR2 = log(R1 * (MAX_DAC / average - 1.0));
