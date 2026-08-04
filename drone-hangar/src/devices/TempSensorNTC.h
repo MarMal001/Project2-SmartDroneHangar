@@ -6,12 +6,11 @@
 class TempSensorNTC: public TempSensor {
 
 public:
-  TempSensorNTC(int pin);	
-  virtual float getTemperature();
+    TempSensorNTC(int pin);	
+    virtual float getTemperature();
   
 private:
-  int pin;
+    int pin;
 };
-
 
 #endif

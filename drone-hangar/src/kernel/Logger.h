@@ -1,17 +1,16 @@
 #ifndef __LOGGER__
 #define __LOGGER__
 
-#include "Arduino.h"
-
+#include <Arduino.h>
 
 class LoggerService {
     
 public: 
-  void init(unsigned long baudRate);
-  
-  void log(const String& msg);
-};
+    static void init(unsigned long baudRate);
+    static void log(const String& msg);
 
-extern LoggerService Logger;
+private:
+    static LoggerService instance;
+};
 
 #endif

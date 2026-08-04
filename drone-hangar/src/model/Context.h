@@ -4,19 +4,18 @@
 class Context {
 
 public:
-  Context();
+    Context();
 
-  void setStarted();
-  void setStopped();
+    void setStarted();
+    void setStopped();
 
-  bool isStarted();  
-  bool isStopped();
-  void reset();
+    bool isStarted();  
+    bool isStopped();
+    void reset();
 
 private:
-
-  bool started; 
-  bool stopped;
+    bool started; 
+    bool stopped;
 };
 
 #endif

@@ -8,27 +8,30 @@
 #include "devices/Sonar.h"
 #include "devices/TempSensorNTC.h"
 #include "Servo.h"
+#include "LiquidCrystal_I2C.h"
 
 class HWPlatform {
 
 public:
-  HWPlatform();
-  void init();
+    HWPlatform();
+    void init();
 
-  Button* getButton();
-  Led*  getLed(int index);
-  Servo* getMotor();
-  Pir*  getPir();
-  Sonar* getSonar();
-  TempSensorNTC* getTempSensorNTC();
+    Button* getButton();
+    Led*  getLed(int index);
+    Servo* getMotor();
+    Pir*  getPir();
+    Sonar* getSonar();
+    TempSensorNTC* getTempSensorNTC();
+    LiquidCrystal_I2C* getLCD();
 
 private:
-  Button* pButton;
-  Led* pLeds[NUMBER_LEDS];
-  Servo* pMotor;
-  Pir* pPir;
-  Sonar* pSonar;
-  TempSensorNTC* pTempSensorNTC;
+    Button* pButton;
+    Led* pLeds[NUMBER_LEDS];
+    Servo* pMotor;
+    Pir* pPir;
+    Sonar* pSonar;
+    TempSensorNTC* pTempSensorNTC;
+    LiquidCrystal_I2C* pLcd;
   
 };
 

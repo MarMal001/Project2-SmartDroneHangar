@@ -1,39 +1,42 @@
 #ifndef __SERIAL_COMM__
 #define __SERIAL_COMM__
 
-#include "Arduino.h"
+#include <Arduino.h>
 
 //pensata per task periodiche
 class SerialCommService {
 
 public:
-  SerialCommService();
+    // Legge i byte disponibili sulla Serial e aggiorna lo stato interno.
+    static void poll();
 
-  // Legge i byte disponibili sulla Serial e aggiorna lo stato interno.
-  void poll();
+    // true se dall'ultima consumeOpenCommand() e' arrivato un "cmd:OPEN".
+    static bool isOpenCommandPending();
 
-  // true se dall'ultima consumeOpenCommand() e' arrivato un "cmd:OPEN".
-  bool isOpenCommandPending();
+    // Consuma il comando di apertura pendente (lo resetta a false).
+    static void consumeOpenCommand();
 
-  // Consuma il comando di apertura pendente (lo resetta a false).
-  void consumeOpenCommand();
+    // Invia "st:<droneState>:<hangarState>:<distanceCm>"
+    static void sendState(const String& droneState, const String& hangarState, int distanceCm);
 
-  // Invia "st:<droneState>:<hangarState>:<distanceCm>"
-  void sendState(const String& droneState, const String& hangarState, int distanceCm);
+    // Invia "al:ALARM"
+    static void sendAlarm();
 
-  // Invia "al:ALARM"
-  void sendAlarm();
+    // Invia "al:PREALARM"
+    static void sendPreAlarm();
 
-  // Invia "al:PREALARM"
-  void sendPreAlarm();
+    static SerialCommService getInstance();
 
 private:
-  void processMessage(const String& msg);
+    static void processMessage(const String& msg);
 
-  String inputBuffer;
-  bool openCommandPending;
+    SerialCommService();
+
+private:
+    static SerialCommService instance;
+
+    String inputBuffer;
+    bool openCommandPending;
 };
-
-extern SerialCommService SerialComm;
 
 #endif

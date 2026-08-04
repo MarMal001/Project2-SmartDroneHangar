@@ -1,21 +1,22 @@
 #include "Sonar.h"
 
-#include "Arduino.h"
+#include <Arduino.h>
 
-Sonar::Sonar(int echoP, int trigP, long maxTime) : echoPin(echoP), trigPin(trigP), timeOut(maxTime){
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);  
-  temperature = 20; // default value
+Sonar::Sonar(int echoP, int trigP, long maxTime) : echoPin(echoP), trigPin(trigP), timeOut(maxTime) {
+    pinMode(trigPin, OUTPUT);
+    pinMode(echoPin, INPUT);
+    temperature = 20; // default value
 }
 
-void Sonar::setTemperature(float temp){
-  temperature = temp;
-}
-float Sonar::getSoundSpeed(){
-  return 331.5 + 0.6*temperature;   
+void Sonar::setTemperature(float temp) {
+    temperature = temp;
 }
 
-float Sonar::getDistance(){
+float Sonar::getSoundSpeed() {
+    return 331.5 + 0.6*temperature;
+}
+
+float Sonar::getDistance() {
     digitalWrite(trigPin,LOW);
     delayMicroseconds(3);
     digitalWrite(trigPin,HIGH);

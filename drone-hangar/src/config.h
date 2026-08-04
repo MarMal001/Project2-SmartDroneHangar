@@ -1,10 +1,17 @@
 #ifndef __CONFIG__
 #define __CONFIG__
 
-#define BT_PIN  6   
-#define MOTOR_PIN   5
-#define PIR_PIN     2 
-#define TEMP_PIN    A0
+#include <Arduino.h>
+
+constexpr int PIR_PIN        = 2;
+constexpr int SONAR_ECHO_PIN = 3;
+constexpr int SONAR_TRIG_PIN = 4;
+constexpr int MOTOR_PIN      = 5;
+constexpr int BT_PIN         = 6;
+constexpr int G_LED1_PIN     = 7;
+constexpr int G_LED2_PIN     = 8;
+constexpr int ALARM_LED_PIN  = 9;
+constexpr int TEMP_PIN       = A0;
 
 enum LED {
     ALARM_LED,
@@ -13,13 +20,6 @@ enum LED {
     NUMBER_LEDS
 };
 
-enum SonarPins {
-    ECHO_PIN,
-    TRIG_PIN,
-    NUMBER_SONAR_PINS
-};
-
-int ledPins[NUMBER_LEDS] = {9, 7, 8}; 
-int sonarPins[NUMBER_SONAR_PINS] = {3, 4};
+constexpr int ledPins[NUMBER_LEDS] = { ALARM_LED_PIN, G_LED1_PIN, G_LED2_PIN };
  
 #endif
