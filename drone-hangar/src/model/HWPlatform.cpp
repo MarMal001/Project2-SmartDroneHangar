@@ -2,8 +2,9 @@
 #include <Arduino.h>
 #include "LiquidCrystal_I2C.h"
 #include "devices/ButtonImpl.h"
-#include "config.h"
 #include "devices/Led.h"
+#include "devices/TempSensorNTC.h"
+#include "config.h"
 #include "Servo.h"
 
 constexpr long MAX_TIME = 25000L; //This time is used to determine the max distance detected by the sonar -> 25000ms ~ 4 meters
@@ -50,7 +51,7 @@ Sonar *HWPlatform::getSonar() {
 	return this->pSonar;
 }
 
-TempSensorNTC *HWPlatform::getTempSensorNTC() {
+TempSensor *HWPlatform::getTempSensor() {
 	return this->pTempSensorNTC;
 }
 

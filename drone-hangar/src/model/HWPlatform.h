@@ -6,7 +6,7 @@
 #include "devices/Led.h"
 #include "devices/Pir.h"
 #include "devices/Sonar.h"
-#include "devices/TempSensorNTC.h"
+#include "devices/TempSensor.h"
 #include "Servo.h"
 #include "LiquidCrystal_I2C.h"
 
@@ -21,7 +21,7 @@ public:
     Servo* getMotor();
     Pir*  getPir();
     Sonar* getSonar();
-    TempSensorNTC* getTempSensorNTC();
+    TempSensor* getTempSensor();
     LiquidCrystal_I2C* getLCD();
 
 private:
@@ -30,7 +30,7 @@ private:
     Servo* pMotor;
     Pir* pPir;
     Sonar* pSonar;
-    TempSensorNTC* pTempSensorNTC;
+    TempSensor* pTempSensorNTC;
     LiquidCrystal_I2C* pLcd;
   
 };
