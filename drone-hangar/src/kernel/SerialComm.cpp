@@ -1,0 +1,57 @@
+#include "SerialComm.h"
+#include "Protocol.h"
+
+SerialCommService SerialComm;
+
+SerialCommService::SerialCommService(){
+  inputBuffer = "";
+  inputBuffer.reserve(32);
+  openCommandPending = false;
+}
+
+void SerialCommService::poll(){
+  while (Serial.available() > 0){
+    char c = (char) Serial.read();
+    if (c == '\n'){
+      processMessage(inputBuffer);
+      inputBuffer = "";
+    } else if (c != '\r'){
+      inputBuffer += c;
+    }
+  }
+}
+
+void SerialCommService::processMessage(const String& msg){
+  if (msg == CMD_OPEN){
+    openCommandPending = true;
+  }
+  // else Logger.log("unknown: " + msg);
+  // decommentare per leggere messaggi malformati che altrimenti ignoriamo
+}
+
+bool SerialCommService::isOpenCommandPending(){
+  return openCommandPending;
+}
+
+void SerialCommService::consumeOpenCommand(){
+  openCommandPending = false;
+}
+
+void SerialCommService::sendState(const String& droneState, const String& hangarState, int distanceCm){
+  Serial.print(STATE_PREFIX);
+  Serial.print(droneState);
+  Serial.print(":");
+  Serial.print(hangarState);
+  Serial.print(":");
+  Serial.println(distanceCm);
+}
+
+void SerialCommService::sendAlarm(){
+  Serial.print(ALARM_PREFIX);
+  Serial.println(HANGAR_ALARM);
+}
+
+void SerialCommService::sendPreAlarm(){
+  Serial.print(ALARM_PREFIX);
+  Serial.println(HANGAR_PREALARM);
+}
