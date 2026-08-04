@@ -3,9 +3,9 @@
 
 #include "config.h"
 #include "devices/Button.h"
-#include "devices/Led.h"
-#include "devices/Pir.h"
-#include "devices/Sonar.h"
+#include "devices/Light.h"
+#include "devices/PresenceSensor.h"
+#include "devices/ProximitySensor.h"
 #include "devices/TempSensor.h"
 #include "Servo.h"
 #include "LiquidCrystal_I2C.h"
@@ -17,19 +17,19 @@ public:
     void init();
 
     Button* getButton();
-    Led*  getLed(int index);
+    Light*  getLight(int index);
     Servo* getMotor();
-    Pir*  getPir();
-    Sonar* getSonar();
+    PresenceSensor*  getPresenceSensor();
+    ProximitySensor* getProximitySensor();
     TempSensor* getTempSensor();
     LiquidCrystal_I2C* getLCD();
 
 private:
     Button* pButton;
-    Led* pLeds[NUMBER_LEDS];
+    Light* pLights[NUMBER_LEDS];
     Servo* pMotor;
-    Pir* pPir;
-    Sonar* pSonar;
+    PresenceSensor* pPresenceSensor;
+    ProximitySensor* pProximitySensor;
     TempSensor* pTempSensorNTC;
     LiquidCrystal_I2C* pLcd;
   

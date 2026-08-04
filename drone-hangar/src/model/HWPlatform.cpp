@@ -3,6 +3,9 @@
 #include "LiquidCrystal_I2C.h"
 #include "devices/ButtonImpl.h"
 #include "devices/Led.h"
+#include "devices/Light.h"
+#include "devices/Pir.h"
+#include "devices/Sonar.h"
 #include "devices/TempSensorNTC.h"
 #include "config.h"
 #include "Servo.h"
@@ -20,11 +23,11 @@ HWPlatform::HWPlatform() {
 	pMotor->attach(MOTOR_PIN);
 	
 	for (int i = 0; i < NUMBER_LEDS; i++) {
-		pLeds[i] = new Led(ledPins[i]);
+		pLights[i] = new Led(ledPins[i]);
 	}
 
-	pPir = new Pir(PIR_PIN);
-	pSonar = new Sonar(SONAR_ECHO_PIN, SONAR_TRIG_PIN, MAX_TIME);
+	pPresenceSensor = new Pir(PIR_PIN);
+	pProximitySensor = new Sonar(SONAR_ECHO_PIN, SONAR_TRIG_PIN, MAX_TIME);
 	pTempSensorNTC = new TempSensorNTC(TEMP_PIN);
 }
 
@@ -35,20 +38,20 @@ Button *HWPlatform::getButton() {
 	return this->pButton;
 }
 
-Led *HWPlatform::getLed(int index) {
-	return this->pLeds[index];
+Light *HWPlatform::getLight(int index) {
+	return this->pLights[index];
 }
 
 Servo *HWPlatform::getMotor() {
 	return this->pMotor;
 }
 
-Pir *HWPlatform::getPir() {
-	return this->pPir;
+PresenceSensor *HWPlatform::getPresenceSensor() {
+	return this->pPresenceSensor;
 }
 
-Sonar *HWPlatform::getSonar() {
-	return this->pSonar;
+ProximitySensor *HWPlatform::getProximitySensor() {
+	return this->pProximitySensor;
 }
 
 TempSensor *HWPlatform::getTempSensor() {
