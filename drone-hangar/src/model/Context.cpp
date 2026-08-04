@@ -1,29 +1,79 @@
 #include "Context.h"
 
-Context::Context() {
-	started = false;
-	stopped = false;
+void Context::setHangarState(HangarState state) {
+    instance.hangarState = state;
 }
 
-bool Context::isStarted() {
-  	return started;
+bool Context::isDroneInside() {
+    return instance.hangarState == DRONE_INSIDE;
 }
 
-bool Context::isStopped() {
-	return stopped;
+bool Context::isDroneOutside() {
+    return instance.hangarState == DRONE_OUTSIDE;
 }
 
-void Context::setStarted() {
-	started = true;
-	stopped = false;
+bool Context::isDroneLanding() {
+    return instance.hangarState == DRONE_LANDING;
 }
 
-void Context::setStopped() {
-	stopped = true;
-	started = false;
+bool Context::isDroneTakingOut() {
+    return instance.hangarState == DRONE_TAKE_OFF;
 }
 
-void Context::reset() {
-	started = false;
-	stopped = false;
+void Context::setAlarm() {
+    instance.alarmState = ALARM;
+}
+
+void Context::setPreAlarm() {
+    instance.alarmState = PRE_ALARM;
+}
+
+void Context::resetAlarm() {
+    instance.alarmState = NO_ALARM;
+}
+
+bool Context::isAlarmOff() {
+    return instance.alarmState == NO_ALARM;
+}
+
+bool Context::isPreAlarmOn() {
+    return instance.alarmState == PRE_ALARM;
+}
+
+bool Context::isAlarmOn() {
+    return instance.alarmState == ALARM;
+}
+
+bool Context::isDroneDetected() {
+    return instance.droneDetected;
+}
+
+void Context::setDroneDetected(bool detected) {
+    instance.droneDetected = detected;
+}
+
+float Context::getDistanceFromDrone() {
+    return instance.distanceFromDrone;
+}
+
+void Context::setDistanceFromDrone(float distance) {
+    instance.distanceFromDrone = distance;
+}
+
+bool Context::isHangarDoorOpen() {
+    return instance.hangarDoorOpen;
+}
+
+void Context::openHangarDoor() {
+    instance.requestHangarDoorOpening = true;
+}
+
+void Context::setHangarDoorOpen() {
+    instance.requestHangarDoorOpening = false;
+    instance.hangarDoorOpen = true;
+}
+
+Context::Context()
+    : hangarState(DRONE_INSIDE), alarmState(NO_ALARM), distanceFromDrone(0.0), droneDetected(false), hangarDoorOpen(false), requestHangarDoorOpening(false)
+{
 }

@@ -1,21 +1,59 @@
 #ifndef __CONTEXT__
 #define __CONTEXT__
 
+enum HangarState {
+    DRONE_INSIDE,
+    DRONE_TAKE_OFF,
+    DRONE_OUTSIDE,
+    DRONE_LANDING
+};
+
+enum AlarmState {
+    NO_ALARM,
+    PRE_ALARM,
+    ALARM
+};
+
 class Context {
 
 public:
-    Context();
+    static void setHangarState(HangarState state);
 
-    void setStarted();
-    void setStopped();
+    static bool isDroneInside();
+    static bool isDroneOutside();
+    static bool isDroneLanding();
+    static bool isDroneTakingOut();
 
-    bool isStarted();  
-    bool isStopped();
-    void reset();
+    static void setAlarm();
+    static void setPreAlarm();
+    static void resetAlarm();
+
+    static bool isAlarmOff();
+    static bool isPreAlarmOn();
+    static bool isAlarmOn();
+
+    static bool isDroneDetected();
+    static void setDroneDetected(bool detected);
+
+    static float getDistanceFromDrone();
+    static void setDistanceFromDrone(float distance);
+
+    static bool isHangarDoorOpen();
+    static void openHangarDoor();
+    static void setHangarDoorOpen();
 
 private:
-    bool started; 
-    bool stopped;
+    Context();
+
+private:
+    static Context instance;
+
+    HangarState hangarState;
+    AlarmState alarmState;
+    float distanceFromDrone;
+    bool droneDetected;
+    bool hangarDoorOpen;
+    bool requestHangarDoorOpening;
 };
 
 #endif
