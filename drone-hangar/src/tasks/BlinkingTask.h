@@ -3,13 +3,13 @@
 
 #include "kernel/Task.h"
 #include "model/Context.h"
-#include "devices/Led.h"
+#include "devices/Light.h"
 #include <Arduino.h>
 
 class BlinkingTask: public Task {
 
 public:
-  BlinkingTask(Led* pLed, Context* pContext); 
+  BlinkingTask(Light* pLed, Context* pContext); 
   void tick();
 
 private:  
@@ -23,7 +23,7 @@ private:
   long stateTimestamp;
   bool justEntered;
 
-  Led* pLed;
+  Light* pLed;
   Context* pContext;
 };
 

@@ -3,7 +3,7 @@
 #include "config.h"
 #include "kernel/Logger.h"
 
-BlinkingTask::BlinkingTask(Led* pLed): 
+BlinkingTask::BlinkingTask(Light* pLed): 
     pLed(pLed){
     setState(IDLE);
 }

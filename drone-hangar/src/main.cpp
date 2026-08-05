@@ -5,6 +5,7 @@
 #include "tasks/AlarmTask.h"
 #include "tasks/LCDTask.h"
 #include "tasks/SerialCommTask.h"
+#include "tasks/BlinkingTask.h"
 #include <Arduino.h>
 
 HWPlatform* hw;
@@ -24,10 +25,10 @@ void setup() {
     serialCommTask->init(50);
     scheduler->addTask(serialCommTask);
 
-    Task* blinkingTask = new BlinkingTask(hw->getLed(G_LED2_PIN));
+    Task* blinkingTask = new BlinkingTask(hw->getLight(G_LED2_PIN));
     blinkingTask->init(500);
     scheduler->addTask(blinkingTask);
-    
+
     Task* lcdTask = new LCDTask(hw->getLCD());
     lcdTask->init(200);
     scheduler->addTask(lcdTask);
