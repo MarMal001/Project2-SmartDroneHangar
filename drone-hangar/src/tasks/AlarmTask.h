@@ -2,13 +2,14 @@
 #define __ALARM_TASK__
 
 #include "devices/Button.h"
+#include "devices/Light.h"
 #include "devices/TempSensor.h"
 #include "kernel/Task.h"
 
 class AlarmTask: public Task {
 
 public:
-    AlarmTask(Button* resetButton, TempSensor* tempSensor);
+    AlarmTask(Button* resetButton, TempSensor* tempSensor, Light* alarmLight);
 
     void tick();
 
@@ -24,6 +25,7 @@ private:
 private:
     Button* resetButton;
     TempSensor* tempSensor;
+    Light* alarmLight;
     long timerTs;
 };
 

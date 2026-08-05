@@ -5,8 +5,8 @@
 
 constexpr long TIMER_NOT_STARTED = -1;
 
-AlarmTask::AlarmTask(Button* resetButton, TempSensor* tempSensor)
-    : resetButton(resetButton), tempSensor(tempSensor), timerTs(TIMER_NOT_STARTED)
+AlarmTask::AlarmTask(Button* resetButton, TempSensor* tempSensor, Light* alarmLight)
+    : resetButton(resetButton), tempSensor(tempSensor), alarmLight(alarmLight), timerTs(TIMER_NOT_STARTED)
 {
 }
 
@@ -37,8 +37,10 @@ void AlarmTask::tick() {
             Context::setAlarm();
         }
     } else if (Context::isAlarmOn()) {
+        alarmLight->switchOn();
         if (resetButton->isPressed() && !isPreAlarmTemperatureThresholdReached()) {
             Context::resetAlarm();
+            alarmLight->switchOff();
         }
     }
 }

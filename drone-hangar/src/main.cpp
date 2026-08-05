@@ -1,3 +1,4 @@
+#include "config.h"
 #include "kernel/Logger.h"
 #include "kernel/Scheduler.h"
 #include "model/HWPlatform.h"
@@ -13,7 +14,7 @@ void setup() {
     scheduler = new Scheduler();
     scheduler->init(50);
 
-    Task* alarmTask = new AlarmTask(hw->getButton(), hw->getTempSensor());
+    Task* alarmTask = new AlarmTask(hw->getButton(), hw->getTempSensor(), hw->getLight(ALARM_LED));
     alarmTask->init(50);
 
     scheduler->addTask(alarmTask);
