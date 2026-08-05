@@ -42,12 +42,12 @@ public:
     static void openHangarDoor();
     static void setHangarDoorOpen();
 
+    static Context& getInstance();
+
 private:
     Context();
 
 private:
-    static Context instance;
-
     HangarState hangarState;
     AlarmState alarmState;
     float distanceFromDrone;

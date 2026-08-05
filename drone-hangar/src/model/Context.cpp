@@ -1,76 +1,81 @@
 #include "Context.h"
 
 void Context::setHangarState(HangarState state) {
-    instance.hangarState = state;
+    getInstance().hangarState = state;
 }
 
 bool Context::isDroneInside() {
-    return instance.hangarState == DRONE_INSIDE;
+    return getInstance().hangarState == DRONE_INSIDE;
 }
 
 bool Context::isDroneOutside() {
-    return instance.hangarState == DRONE_OUTSIDE;
+    return getInstance().hangarState == DRONE_OUTSIDE;
 }
 
 bool Context::isDroneLanding() {
-    return instance.hangarState == DRONE_LANDING;
+    return getInstance().hangarState == DRONE_LANDING;
 }
 
 bool Context::isDroneTakingOut() {
-    return instance.hangarState == DRONE_TAKE_OFF;
+    return getInstance().hangarState == DRONE_TAKE_OFF;
 }
 
 void Context::setAlarm() {
-    instance.alarmState = ALARM;
+    getInstance().alarmState = ALARM;
 }
 
 void Context::setPreAlarm() {
-    instance.alarmState = PRE_ALARM;
+    getInstance().alarmState = PRE_ALARM;
 }
 
 void Context::resetAlarm() {
-    instance.alarmState = NO_ALARM;
+    getInstance().alarmState = NO_ALARM;
 }
 
 bool Context::isAlarmOff() {
-    return instance.alarmState == NO_ALARM;
+    return getInstance().alarmState == NO_ALARM;
 }
 
 bool Context::isPreAlarmOn() {
-    return instance.alarmState == PRE_ALARM;
+    return getInstance().alarmState == PRE_ALARM;
 }
 
 bool Context::isAlarmOn() {
-    return instance.alarmState == ALARM;
+    return getInstance().alarmState == ALARM;
 }
 
 bool Context::isDroneDetected() {
-    return instance.droneDetected;
+    return getInstance().droneDetected;
 }
 
 void Context::setDroneDetected(bool detected) {
-    instance.droneDetected = detected;
+    getInstance().droneDetected = detected;
 }
 
 float Context::getDistanceFromDrone() {
-    return instance.distanceFromDrone;
+    return getInstance().distanceFromDrone;
 }
 
 void Context::setDistanceFromDrone(float distance) {
-    instance.distanceFromDrone = distance;
+    getInstance().distanceFromDrone = distance;
 }
 
 bool Context::isHangarDoorOpen() {
-    return instance.hangarDoorOpen;
+    return getInstance().hangarDoorOpen;
 }
 
 void Context::openHangarDoor() {
-    instance.requestHangarDoorOpening = true;
+    getInstance().requestHangarDoorOpening = true;
 }
 
 void Context::setHangarDoorOpen() {
-    instance.requestHangarDoorOpening = false;
-    instance.hangarDoorOpen = true;
+    getInstance().requestHangarDoorOpening = false;
+    getInstance().hangarDoorOpen = true;
+}
+
+Context& Context::getInstance() {
+    static Context instance;
+    return instance;
 }
 
 Context::Context()
