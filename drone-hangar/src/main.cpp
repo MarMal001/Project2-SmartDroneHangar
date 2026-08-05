@@ -3,6 +3,7 @@
 #include "kernel/Scheduler.h"
 #include "model/HWPlatform.h"
 #include "tasks/AlarmTask.h"
+#include "tasks/LCDTask.h"
 #include "tasks/SerialCommTask.h"
 #include <Arduino.h>
 
@@ -26,6 +27,10 @@ void setup() {
     Task* blinkingTask = new BlinkingTask(hw->getLed(G_LED2_PIN));
     blinkingTask->init(500);
     scheduler->addTask(blinkingTask);
+    
+    Task* lcdTask = new LCDTask(hw->getLCD());
+    lcdTask->init(200);
+    scheduler->addTask(lcdTask);
 }
 
 void loop() {
