@@ -3,8 +3,8 @@
 #include "config.h"
 #include "kernel/Logger.h"
 
-BlinkingTask::BlinkingTask(Light* pLed): 
-    pLed(pLed){
+BlinkingTask::BlinkingTask(Light* pLight): 
+    pLight(pLight){
     setState(IDLE);
 }
   
@@ -12,19 +12,16 @@ void BlinkingTask::tick(){
     switch (state){   
         case IDLE: {
             if (this->checkAndSetJustEntered()){
-                pLed->switchOff();
-                Logger.log(F("[BT] IDLE"));
-
+                pLight->switchOff();
             }
-            if (Contex::isDroneTakingOff() || Contex::isDroneLanding()){
+            if (Context::isDroneTakingOff() || Context::isDroneLanding()){
                 setState(OFF);
             }
             break;
         }
         case OFF: {
             if (this->checkAndSetJustEntered()){
-                pLed->switchOff();
-                Logger.log(F("[BT] OFF"));
+                pLight->switchOff();
             }
             if (Context::isDroneOutside() || Context::isDroneInside()){
                 setState(IDLE);
@@ -35,8 +32,7 @@ void BlinkingTask::tick(){
         }
         case ON: {
             if (this->checkAndSetJustEntered()){
-                pLed->switchOn();
-                Logger.log(F("[BT] ON"));
+                pLight->switchOn();
             }
             if (Context::isDroneOutside() || Context::isDroneInside()){
                 setState(IDLE);
@@ -49,7 +45,7 @@ void BlinkingTask::tick(){
 }
 
 
-void BlinkingTask::setState(int s){
+void BlinkingTask::setState(LightState s){
     state = s;
     stateTimestamp = millis();
     justEntered = true;
@@ -62,7 +58,7 @@ long BlinkingTask::elapsedTimeInState(){
 bool BlinkingTask::checkAndSetJustEntered(){
     bool bak = justEntered;
     if (justEntered){
-      justEntered = false;
+        justEntered = false;
     }
     return bak;
 }

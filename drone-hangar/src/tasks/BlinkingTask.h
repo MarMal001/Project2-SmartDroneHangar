@@ -9,22 +9,23 @@
 class BlinkingTask: public Task {
 
 public:
-  BlinkingTask(Light* pLed, Context* pContext); 
-  void tick();
+	BlinkingTask(Light* pLight); 
+	void tick();
 
 private:  
-  void setState(int state);
-  long elapsedTimeInState();
-  void log(const String& msg);
-  
-  bool checkAndSetJustEntered();
-  
-  enum { IDLE, OFF, ON } state;
-  long stateTimestamp;
-  bool justEntered;
+	
+	enum LightState { IDLE, OFF, ON };
+	void setState(LightState state);
+	long elapsedTimeInState();
+	void log(const String& msg);
 
-  Light* pLed;
-  Context* pContext;
+	bool checkAndSetJustEntered();
+
+	long stateTimestamp;
+	bool justEntered;
+	LightState state;
+
+	Light* pLight;
 };
 
 #endif
