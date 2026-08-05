@@ -16,7 +16,7 @@ bool Context::isDroneLanding() {
     return getInstance().hangarState == DRONE_LANDING;
 }
 
-bool Context::isDroneTakingOut() {
+bool Context::isDroneTakingOff() {
     return getInstance().hangarState == DRONE_TAKE_OFF;
 }
 

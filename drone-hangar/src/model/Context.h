@@ -22,7 +22,7 @@ public:
     static bool isDroneInside();
     static bool isDroneOutside();
     static bool isDroneLanding();
-    static bool isDroneTakingOut();
+    static bool isDroneTakingOff();
 
     static void setAlarm();
     static void setPreAlarm();
