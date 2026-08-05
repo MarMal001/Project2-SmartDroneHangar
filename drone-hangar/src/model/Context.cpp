@@ -1,5 +1,7 @@
 #include "Context.h"
 
+Context Context::instance;
+
 void Context::setHangarState(HangarState state) {
     instance.hangarState = state;
 }
