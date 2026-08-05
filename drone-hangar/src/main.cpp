@@ -3,6 +3,7 @@
 #include "kernel/Scheduler.h"
 #include "model/HWPlatform.h"
 #include "tasks/AlarmTask.h"
+#include "tasks/SerialCommTask.h"
 #include <Arduino.h>
 
 HWPlatform* hw;
@@ -16,8 +17,11 @@ void setup() {
 
     Task* alarmTask = new AlarmTask(hw->getButton(), hw->getTempSensor(), hw->getLight(ALARM_LED));
     alarmTask->init(50);
-
     scheduler->addTask(alarmTask);
+
+    Task* serialCommTask = new SerialCommTask();
+    serialCommTask->init(50);
+    scheduler->addTask(serialCommTask);
 }
 
 void loop() {

@@ -1,6 +1,8 @@
 #include "SerialComm.h"
 #include "Protocol.h"
 
+SerialCommService SerialCommService::instance;
+
 SerialCommService::SerialCommService() {
     inputBuffer = "";
     inputBuffer.reserve(32);
@@ -46,10 +48,10 @@ void SerialCommService::sendState(const String& droneState, const String& hangar
 
 void SerialCommService::sendAlarm() {
     Serial.print(ALARM_PREFIX);
-    Serial.println(HANGAR_ALARM);
+    Serial.println(MSG_HANGAR_ALARM);
 }
 
 void SerialCommService::sendPreAlarm() {
     Serial.print(ALARM_PREFIX);
-    Serial.println(HANGAR_PREALARM);
+    Serial.println(MSG_HANGAR_PREALARM);
 }

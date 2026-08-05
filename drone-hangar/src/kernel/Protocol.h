@@ -13,14 +13,14 @@ constexpr unsigned long SERIAL_BAUD_RATE = 115200uL;
 #define CMD_OPEN "cmd:OPEN"
 
 // drone states
-#define DRONE_REST      "REST"
-#define DRONE_TAKEOFF   "TAKEOFF"
-#define DRONE_OUT       "OUT"
-#define DRONE_LANDING   "LANDING"
+#define MSG_DRONE_REST      "REST"
+#define MSG_DRONE_TAKEOFF   "TAKEOFF"
+#define MSG_DRONE_OUT       "OUT"
+#define MSG_DRONE_LANDING   "LANDING"
 
 // hangar states
-#define HANGAR_NORMAL   "NORMAL"
-#define HANGAR_PREALARM "PREALARM"
-#define HANGAR_ALARM    "ALARM"
+#define MSG_HANGAR_NORMAL   "NORMAL"
+#define MSG_HANGAR_PREALARM "PREALARM"
+#define MSG_HANGAR_ALARM    "ALARM"
 
 #endif
