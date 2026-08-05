@@ -3,6 +3,7 @@
 #include "kernel/Scheduler.h"
 #include "model/HWPlatform.h"
 #include "tasks/AlarmTask.h"
+#include "tasks/LCDTask.h"
 #include "tasks/SerialCommTask.h"
 #include <Arduino.h>
 
@@ -22,6 +23,10 @@ void setup() {
     Task* serialCommTask = new SerialCommTask();
     serialCommTask->init(50);
     scheduler->addTask(serialCommTask);
+
+    Task* lcdTask = new LCDTask(hw->getLCD());
+    lcdTask->init(200);
+    scheduler->addTask(lcdTask);
 }
 
 void loop() {
