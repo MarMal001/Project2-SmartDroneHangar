@@ -22,6 +22,10 @@ void setup() {
     Task* serialCommTask = new SerialCommTask();
     serialCommTask->init(50);
     scheduler->addTask(serialCommTask);
+
+    Task* blinkingTask = new BlinkingTask(hw->getLed(G_LED2_PIN));
+    blinkingTask->init(500);
+    scheduler->addTask(blinkingTask);
 }
 
 void loop() {
