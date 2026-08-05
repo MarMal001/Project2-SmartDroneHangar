@@ -2,30 +2,33 @@
 #define __BLINKING_TASK__
 
 #include "kernel/Task.h"
-#include "model/Context.h"
 #include "devices/Light.h"
 #include <Arduino.h>
 
 class BlinkingTask: public Task {
 
 public:
-	BlinkingTask(Light* pLight); 
-	void tick();
+    BlinkingTask(Light* pLight); 
+    void tick();
 
 private:  
-	
-	enum LightState { IDLE, OFF, ON };
-	void setState(LightState state);
-	long elapsedTimeInState();
-	void log(const String& msg);
+    enum LightState { 
+        IDLE,
+        OFF,
+        ON
+    };
 
-	bool checkAndSetJustEntered();
+    void setState(LightState state);
+    long elapsedTimeInState();
+    void log(const String& msg);
 
-	long stateTimestamp;
-	bool justEntered;
-	LightState state;
+    bool checkAndSetJustEntered();
 
-	Light* pLight;
+    long stateTimestamp;
+    bool justEntered;
+    LightState state;
+
+    Light* pLight;
 };
 
 #endif

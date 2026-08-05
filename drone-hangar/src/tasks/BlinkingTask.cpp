@@ -1,7 +1,6 @@
 #include "tasks/BlinkingTask.h"
+#include "model/Context.h"
 #include <Arduino.h>
-#include "config.h"
-#include "kernel/Logger.h"
 
 BlinkingTask::BlinkingTask(Light* pLight): 
     pLight(pLight){
