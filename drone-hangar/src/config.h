@@ -13,14 +13,14 @@ constexpr int ALARM_LED_PIN  = 9;
 constexpr int MOTOR_PIN      = 11;
 constexpr int TEMP_PIN       = A0;
 
-constexpr long T1 = 5; // Seconds
-constexpr long T2 = 10; // Seconds
-constexpr long T3 = 4; // Seconds
-constexpr long T4 = 5; // Seconds
+constexpr long T1 = 3; // Seconds
+constexpr long T2 = 3; // Seconds
+constexpr long T3 = 3; // Seconds
+constexpr long T4 = 1; // Seconds
 constexpr float D1 = 0.5; // Meters
 constexpr float D2 = 0.05; // Meters
-constexpr float TEMP1 = 55.0; // Degrees
-constexpr float TEMP2 = 70.0; // Degrees
+constexpr float TEMP1 = 32.0; // Degrees
+constexpr float TEMP2 = 35.0; // Degrees
 
 enum LED {
     ALARM_LED,
