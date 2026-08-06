@@ -3,6 +3,8 @@
 #include "kernel/Scheduler.h"
 #include "model/HWPlatform.h"
 #include "tasks/AlarmTask.h"
+#include "tasks/HangarDoorTask.h"
+#include "tasks/HangarTask.h"
 #include "tasks/LCDTask.h"
 #include "tasks/SerialCommTask.h"
 #include "tasks/BlinkingTask.h"
@@ -12,7 +14,7 @@ HWPlatform* hw;
 Scheduler* scheduler;
 
 void setup() {
-    LoggerService::init(9600);
+    LoggerService::init(115200l);
     hw = new HWPlatform();
     scheduler = new Scheduler();
     scheduler->init(50);
@@ -32,6 +34,14 @@ void setup() {
     Task* lcdTask = new LCDTask(hw->getLCD());
     lcdTask->init(200);
     scheduler->addTask(lcdTask);
+
+    Task* hangarDoorTask = new HangarDoorTask(hw->getMotor());
+    hangarDoorTask->init(100);
+    scheduler->addTask(hangarDoorTask);
+
+    Task* hangarTask = new HangarTask(hw->getPresenceSensor(), hw->getProximitySensor(), hw->getLight(G_LED1));
+    hangarTask->init(50);
+    scheduler->addTask(hangarTask);
 }
 
 void loop() {
