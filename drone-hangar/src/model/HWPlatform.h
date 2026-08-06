@@ -6,8 +6,8 @@
 #include "devices/Light.h"
 #include "devices/PresenceSensor.h"
 #include "devices/ProximitySensor.h"
+#include "devices/ServoMotor.h"
 #include "devices/TempSensor.h"
-#include "Servo.h"
 #include "LiquidCrystal_I2C.h"
 
 class HWPlatform {
@@ -18,7 +18,7 @@ public:
 
     Button* getButton();
     Light*  getLight(int index);
-    Servo* getMotor();
+    ServoMotor* getMotor();
     PresenceSensor*  getPresenceSensor();
     ProximitySensor* getProximitySensor();
     TempSensor* getTempSensor();
@@ -27,7 +27,7 @@ public:
 private:
     Button* pButton;
     Light* pLights[NUMBER_LEDS];
-    Servo* pMotor;
+    ServoMotor* pMotor;
     PresenceSensor* pPresenceSensor;
     ProximitySensor* pProximitySensor;
     TempSensor* pTempSensorNTC;

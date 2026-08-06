@@ -5,10 +5,10 @@
 #include "devices/Led.h"
 #include "devices/Light.h"
 #include "devices/Pir.h"
+#include "devices/ServoMotorImpl.h"
 #include "devices/Sonar.h"
 #include "devices/TempSensorNTC.h"
 #include "config.h"
-#include "Servo.h"
 
 constexpr long MAX_TIME = 25000L; //This time is used to determine the max distance detected by the sonar -> 25000ms ~ 4 meters
 
@@ -16,11 +16,10 @@ void wakeUp() {}
 
 HWPlatform::HWPlatform() {
 	pButton = new ButtonImpl(BT_PIN);
-	pLcd = new LiquidCrystal_I2C(0x27, 20, 4);
+	pLcd = new LiquidCrystal_I2C(0x27, 16, 2);
 	pLcd->init();
 	pLcd->backlight();
-	pMotor = new Servo();
-	pMotor->attach(MOTOR_PIN);
+	pMotor = new ServoMotorImpl(MOTOR_PIN);
 	
 	for (int i = 0; i < NUMBER_LEDS; i++) {
 		pLights[i] = new Led(ledPins[i]);
@@ -42,7 +41,7 @@ Light *HWPlatform::getLight(int index) {
 	return this->pLights[index];
 }
 
-Servo *HWPlatform::getMotor() {
+ServoMotor *HWPlatform::getMotor() {
 	return this->pMotor;
 }
 
