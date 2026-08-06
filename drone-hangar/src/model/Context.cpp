@@ -64,6 +64,10 @@ bool Context::isHangarDoorOpen() {
     return getInstance().hangarDoorOpen;
 }
 
+bool Context::isRequestedDoorOpening() {
+    return getInstance().requestHangarDoorOpening;
+}
+
 void Context::openHangarDoor() {
     getInstance().requestHangarDoorOpening = true;
 }
@@ -71,6 +75,10 @@ void Context::openHangarDoor() {
 void Context::setHangarDoorOpen() {
     getInstance().requestHangarDoorOpening = false;
     getInstance().hangarDoorOpen = true;
+}
+
+void Context::setHangarDoorClosed() {
+    getInstance().hangarDoorOpen = false;
 }
 
 Context& Context::getInstance() {

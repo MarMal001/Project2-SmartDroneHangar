@@ -39,8 +39,10 @@ public:
     static void setDistanceFromDrone(float distance);
 
     static bool isHangarDoorOpen();
+    static bool isRequestedDoorOpening();
     static void openHangarDoor();
     static void setHangarDoorOpen();
+    static void setHangarDoorClosed();
 
     static Context& getInstance();
 
