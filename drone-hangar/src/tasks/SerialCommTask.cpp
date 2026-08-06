@@ -40,7 +40,7 @@ void SerialCommTask::handleOutgoingAlarm() {
 
 const char* SerialCommTask::droneStateToString() {
     if (Context::isDroneInside())    return MSG_DRONE_REST;
-    if (Context::isDroneTakingOut()) return MSG_DRONE_TAKEOFF;
+    if (Context::isDroneTakingOff()) return MSG_DRONE_TAKEOFF;
     if (Context::isDroneOutside())   return MSG_DRONE_OUT;
     return MSG_DRONE_LANDING;
 }
