@@ -14,6 +14,10 @@ public:
     void tick();
 
 private:
+    void alarmOff();
+    void preAlarmOn();
+    void alarmOn();
+
     void startTimerAtThresholdReached();
     bool isPreAlarmTemperatureThresholdReached();
     bool isAlarmTemperatureThresholdReached();

@@ -12,36 +12,48 @@ AlarmTask::AlarmTask(Button* resetButton, TempSensor* tempSensor, Light* alarmLi
 
 void AlarmTask::tick() {
     if (Context::isAlarmOff()) {
-        if (isPreAlarmTemperatureThresholdReached()) {
-            if (!isTimerStarted()) {
-                startTimer();
-            }
-        } else {
-            resetTimer();
-            Context::resetAlarm();
-        }
-        if (isTimerDone(T3)) {
-            resetTimer();
-            Context::setPreAlarm();
-        }
+        alarmOff();
     } else if (Context::isPreAlarmOn()) {
-        if (isAlarmTemperatureThresholdReached() && !isTimerStarted()) {
+        preAlarmOn();
+    } else if (Context::isAlarmOn()) {
+        alarmOn();
+    }
+}
+
+void AlarmTask::alarmOff() {
+    if (isPreAlarmTemperatureThresholdReached()) {
+        if (!isTimerStarted()) {
             startTimer();
         }
-        if (!isPreAlarmTemperatureThresholdReached()) {
-            resetTimer();
-            Context::resetAlarm();
-        }
-        if (isTimerDone(T4)) {
-            resetTimer();
-            Context::setAlarm();
-        }
-    } else if (Context::isAlarmOn()) {
-        alarmLight->switchOn();
-        if (resetButton->isPressed() && !isPreAlarmTemperatureThresholdReached()) {
-            Context::resetAlarm();
-            alarmLight->switchOff();
-        }
+    } else {
+        resetTimer();
+        Context::resetAlarm();
+    }
+    if (isTimerDone(T3)) {
+        resetTimer();
+        Context::setPreAlarm();
+    }
+}
+
+void AlarmTask::preAlarmOn() {
+    if (isAlarmTemperatureThresholdReached() && !isTimerStarted()) {
+        startTimer();
+    }
+    if (!isPreAlarmTemperatureThresholdReached()) {
+        resetTimer();
+        Context::resetAlarm();
+    }
+    if (isTimerDone(T4)) {
+        resetTimer();
+        Context::setAlarm();
+    }
+}
+
+void AlarmTask::alarmOn() {
+    alarmLight->switchOn();
+    if (resetButton->isPressed() && !isPreAlarmTemperatureThresholdReached()) {
+        Context::resetAlarm();
+        alarmLight->switchOff();
     }
 }
 
