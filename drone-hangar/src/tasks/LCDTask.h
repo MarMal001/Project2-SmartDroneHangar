@@ -13,6 +13,7 @@ public:
 
 private:
     LiquidCrystal_I2C* lcd;
+    String lastDisplayed;
 };
 
 

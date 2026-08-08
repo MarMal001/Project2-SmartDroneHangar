@@ -3,7 +3,8 @@
 
 #include "kernel/Task.h"
 
-class SerialCommTask: public Task {
+class SerialCommTask : public Task
+{
 
 public:
     SerialCommTask();
@@ -13,14 +14,16 @@ public:
 private:
     void handleIncomingCommands();
     void sendCurrentState();
+    void handleOutgoingPreAlarm();
     void handleOutgoingAlarm();
 
-    const char* droneStateToString();
-    const char* hangarStateToString();
+    const char *droneStateToString();
+    const char *hangarStateToString();
 
     // true se ha gia mandato "al:ALARM";
     // torna false dopo RESET.
     bool alarmAlreadySent;
+    bool preAlarmAlreadySent;
 };
 
 #endif
