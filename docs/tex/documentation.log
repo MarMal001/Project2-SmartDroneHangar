@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.8.8)  8 AUG 2026 17:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.8.8)  8 AUG 2026 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -277,7 +277,11 @@ Language: italian 2026/01/13 v.1.5.02 Italian support for the babel system
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count311
 )
-(./documentation.aux)
+(./documentation.aux
+
+LaTeX Warning: Label `fig:hangar' multiply defined.
+
+)
 \openout1 = `documentation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -298,8 +302,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
-
-(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count312
 \scratchdimen=\dimen172
@@ -381,43 +384,53 @@ Capitolo 2.
 
 ]
 Capitolo 3.
+<images/hangar.png, id=89, 821.0675pt x 435.6275pt>
+File: images/hangar.png Graphic file (type png)
+<use images/hangar.png>
+Package pdftex.def Info: images/hangar.png  used on input line 90.
+(pdftex.def)             Requested size: 390.0pt x 206.91856pt.
+<images/hangar_door.png, id=91, 790.955pt x 400.49625pt>
+File: images/hangar_door.png Graphic file (type png)
+<use images/hangar_door.png>
+Package pdftex.def Info: images/hangar_door.png  used on input line 97.
+(pdftex.def)             Requested size: 390.0pt x 197.4732pt.
 [5
 
-]
+ <./images/hangar.png>] [6 <./images/hangar_door.png>]
 Capitolo 4.
-<images/circuit.png, id=93, 1266.23062pt x 837.88031pt>
+<images/circuit.png, id=105, 1266.23062pt x 837.88031pt>
 File: images/circuit.png Graphic file (type png)
 <use images/circuit.png>
-Package pdftex.def Info: images/circuit.png  used on input line 94.
+Package pdftex.def Info: images/circuit.png  used on input line 108.
 (pdftex.def)             Requested size: 390.0pt x 258.06537pt.
-[6
+[7
 
  <./images/circuit.png>]
 Capitolo 5.
-<images/dru.png, id=102, 564.60938pt x 453.94594pt>
+<images/dru.png, id=112, 564.60938pt x 453.94594pt>
 File: images/dru.png Graphic file (type png)
 <use images/dru.png>
-Package pdftex.def Info: images/dru.png  used on input line 106.
+Package pdftex.def Info: images/dru.png  used on input line 120.
 (pdftex.def)             Requested size: 390.0pt x 313.56244pt.
-[7
+[8
 
- <./images/dru.png>] [8] (./documentation.aux)
+ <./images/dru.png>] [9] (./documentation.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `documentation.out' has not changed.
 (rerunfilecheck)             Checksum: 4C219BC4B8912EFDBBC808FDDAA84BCA;1597.
  ) 
 Here is how much of TeX's memory you used:
- 10005 strings out of 469504
- 156798 string characters out of 5470380
- 580792 words of memory out of 5000000
- 38537 multiletter control sequences out of 15000+600000
+ 10024 strings out of 469504
+ 157216 string characters out of 5470380
+ 580943 words of memory out of 5000000
+ 38553 multiletter control sequences out of 15000+600000
  633525 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,9n,79p,459b,475s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -425,10 +438,10 @@ Here is how much of TeX's memory you used:
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmr17.pfb>
-Output written on documentation.pdf (9 pages, 255705 bytes).
+Output written on documentation.pdf (10 pages, 279141 bytes).
 PDF statistics:
- 140 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 107 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 117 words of extra memory for PDF output out of 10000 (max. 10000000)
 

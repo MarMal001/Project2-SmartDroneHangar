@@ -85,6 +85,20 @@ I2C LCD & Standard & A4/A5 & Output \\
 
 \chapter{Progettazione schemi}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/hangar.png}
+    \caption{Macchina a stati dell'Hangar}
+    \label{fig:hangar}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/hangar_door.png}
+    \caption{Macchina a stati della porta dell'Hangar}
+    \label{fig:hangar}
+\end{figure}
+
 \chapter{Progettazione circuito}
 
 \section{Schema}
@@ -93,7 +107,7 @@ I2C LCD & Standard & A4/A5 & Output \\
     \centering
     \includegraphics[width=\linewidth]{images/circuit.png}
     \caption{Schema Tinkercad rappresentante il circuito}
-    \label{fig:scena}
+    \label{fig:circuit}
 \end{figure}
 
 Rispetto all'implementazione fisica, nel corrente schema abbiamo scelto di inserire il termoresistore TMP36 poiché su Tinkercad non è presente il thermistor NTC utilizzato nel progetto.
@@ -105,7 +119,7 @@ Rispetto all'implementazione fisica, nel corrente schema abbiamo scelto di inser
     \centering
     \includegraphics[width=\linewidth]{images/dru.png}
     \caption{Applicazione Drone Remote Unit}
-    \label{fig:scena}
+    \label{fig:dru}
 \end{figure}
 
 \section{Comunicazione Arduino-Applicazione}
