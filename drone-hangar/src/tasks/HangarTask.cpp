@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include "devices/PresenceSensor.h"
 #include "devices/ProximitySensor.h"
+#include "kernel/Logger.h"
 #include "model/Context.h"
 #include "config.h"
 
@@ -31,6 +32,7 @@ void HangarTask::tick() {
 
 void HangarTask::droneInside() {
     light->switchOn();
+    Context::setDistanceFromDrone(-1); // drone dentro: nessuna distanza valida da mostrare
     if (Context::isRequestedDoorOpening()) {
         Context::setHangarState(DRONE_TAKE_OFF);
         light->switchOff();
@@ -68,9 +70,12 @@ void HangarTask::droneLanding() {
 }
 
 void HangarTask::droneOutside() {
+    Context::setDistanceFromDrone(-1); // drone fuori: nessuna distanza valida da mostrare
     if (Context::isRequestedDoorOpening() && presenceSensor->isDetected()) {
+        LoggerService::log("PIR: drone rilevato, avvio atterraggio");
         Context::setHangarState(DRONE_LANDING);
     }
+
 }
 
 bool HangarTask::isLandingDistanceThresholdReached() {
