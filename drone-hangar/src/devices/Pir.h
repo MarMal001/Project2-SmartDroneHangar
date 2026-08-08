@@ -9,16 +9,8 @@ public:
     Pir(int pin);
     bool isDetected();
 
-    void sync();
-    long getLastSyncTime();
-
-protected: 
-    void updateSyncTime(long time);
-
 private:
-    long lastTimeSync;
     int pin;
-    bool detected;
 };
 
 #endif
