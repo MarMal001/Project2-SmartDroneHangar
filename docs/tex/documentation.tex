@@ -12,7 +12,7 @@
 
 \title{
 	Smart Drone Hangar\\
-	\large Academic Year 2025-2026
+	\large Anno Accademico 2025-2026
 }
 
 \author {
@@ -31,10 +31,10 @@
 
 \section{Obiettivo}
 
-L'obiettivo del progetto è creare un hangar intelligente per un drone. Si divide il sistema in due sottosistemi:
+L'obiettivo del progetto è creare un hangar intelligente per un drone. Il sistema è stato considerato nei suoi due sottosistemi:
 \begin{itemize}
-    \item \textbf{Drone Hangar (Arduino)}: Il sistema che gestisce l'apertura e chiusura dell'hangar, controlla la temperatura e segnala lo stato di allarme quando raggiunge una certa temperatura. L'Arduino manda delle informazioni sullo stato corrente dell'hangar all'applicazione Java tramite seriale.
-    \item \textbf{Drone Remote Unit (PC)}: Il sistema Java che serve da interfaccia tra l'operatore e l'hangar. L'applicazione manda dei comandi tramite seriale all'hangar quando si vuole uscire dall'hangar o entrare nell'hangar in base a dove si trova il drone. Utilizza Swing come interfaccia grafica.
+    \item \textbf{Drone Hangar (Arduino)}: gestisce l'apertura e chiusura dell'hangar, controlla la temperatura e segnala lo stato di allarme quando raggiunge una certa temperatura. L'Arduino manda delle informazioni sullo stato corrente dell'hangar all'applicazione Java tramite seriale.
+    \item \textbf{Drone Remote Unit (PC)}: applicazione Java che simula il comportamento del drone. La DRU manda dei comandi tramite seriale all'hangar quando si vuol fare uscire o entrare e permette la lettura di dati come la distanza del drone e lo stato dell'hangar. Utilizza Swing come interfaccia grafica.
 \end{itemize}
 
 \section{Componenti utilizzati}
@@ -75,12 +75,12 @@ I2C LCD & Standard & A4/A5 & Output \\
 \section{Task implementate}
 
 \begin{itemize}
-	\item \textbf{AlarmTask}: Gestisce lo stato dell'allarme in base alla temperatura corrente. Quando l'hangar è in allarme si può resettare solo quando la temperatura è tornata normale.
-	\item \textbf{BlinkingTask}: Gestisce il blinking del led verde durante LANDING e TAKEOFF.
-	\item \textbf{HangarTask}: Gestisce la macchina a stati dell'hangar divisa in DRONE INSIDE, DRONE TAKEOFF, DRONE OUTSIDE, DRONE LANDING.
-	\item \textbf{HangarDoorTask}: Gestisce l'apertura e chiusura della porta dell'hangar in base allo stato dell'hangar. Quando l'hangar è in DRONE TAKEOFF o DRONE LANDING apre la porta e aggiorna le altre task quando la porta è completamente aperta (poiché non è un'azione immediata). Quando l'hangar è in DRONE INSIDE o DRONE OUTSIDE e la porta è aperta, inizia a chiuderla quando il drone risulta dentro.
-	\item \textbf{LCDTask}: Mostra lo stato corrente dell'hangar all'operatore.
-	\item \textbf{SerialCommTask}: Gestisce lo scambio di comandi tra l'Arduino e l'applicazione Java.
+	\item \textbf{AlarmTask}: gestisce lo stato dell'allarme in base alla temperatura corrente. Quando l'hangar è in allarme si può resettare solo se la temperatura è tornata sotto la soglia di preallarme.
+	\item \textbf{BlinkingTask}: gestisce il blinking del secondo led durante LANDING e TAKEOFF.
+	\item \textbf{HangarTask}: gestisce la macchina a stati dell'hangar divisa in DRONE INSIDE, DRONE TAKEOFF, DRONE OUTSIDE, DRONE LANDING.
+	\item \textbf{HangarDoorTask}: gestisce l'apertura e chiusura della porta dell'hangar in base allo stato di quest'ultimo. Quando l'hangar è in DRONE TAKEOFF o DRONE LANDING apre la porta e informa tramite il Context condiviso le altre task del completamento dell'apertura (poiché non è un'azione immediata). Quando l'hangar è in DRONE INSIDE o DRONE OUTSIDE e la porta è aperta, inizia a chiuderla.
+	\item \textbf{LCDTask}: mostra lo stato corrente dell'hangar all'operatore.
+	\item \textbf{SerialCommTask}: gestisce lo scambio di comandi tra l'Arduino e l'applicazione Java.
 \end{itemize}
 
 \chapter{Progettazione schemi}
@@ -96,7 +96,22 @@ I2C LCD & Standard & A4/A5 & Output \\
     \centering
     \includegraphics[width=\linewidth]{images/hangar_door.png}
     \caption{Macchina a stati della porta dell'Hangar}
-    \label{fig:hangar}
+    \label{fig:hangarDoor}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \vspace{50px}
+    \includegraphics[width=\linewidth]{images/alarm.png}
+    \caption{Macchina a stati dell'allarme}
+    \label{fig:alarm}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/blinking.png}
+    \caption{Macchina a stati del blinking del led}
+    \label{fig:alarm}
 \end{figure}
 
 \chapter{Progettazione circuito}
@@ -110,7 +125,7 @@ I2C LCD & Standard & A4/A5 & Output \\
     \label{fig:circuit}
 \end{figure}
 
-Rispetto all'implementazione fisica, nel corrente schema abbiamo scelto di inserire il termoresistore TMP36 poiché su Tinkercad non è presente il thermistor NTC utilizzato nel progetto.
+Rispetto all'implementazione fisica, nel corrente schema si è scelto di inserire il termoresistore TMP36 poiché su Tinkercad non è presente il termistore NTC utilizzato nel progetto.
 
 \chapter{Applicazione Java}
 
