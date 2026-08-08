@@ -32,9 +32,6 @@ public:
     static bool isPreAlarmOn();
     static bool isAlarmOn();
 
-    static bool isDroneDetected();
-    static void setDroneDetected(bool detected);
-
     static float getDistanceFromDrone();
     static void setDistanceFromDrone(float distance);
 
@@ -53,7 +50,6 @@ private:
     HangarState hangarState;
     AlarmState alarmState;
     float distanceFromDrone;
-    bool droneDetected;
     bool hangarDoorOpen;
     bool requestHangarDoorOpening;
 };
