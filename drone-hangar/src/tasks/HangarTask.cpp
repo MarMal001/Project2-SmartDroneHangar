@@ -53,12 +53,6 @@ void HangarTask::droneTakingOff() {
 }
 
 void HangarTask::droneLanding() {
-    if (Context::isRequestedDoorOpening() && presenceSensor->isDetected()) {
-        Context::setHangarState(DRONE_LANDING);
-    }
-}
-
-void HangarTask::droneOutside() {
     Context::setDistanceFromDrone(proximitySensor->getDistance());
     if (isLandingDistanceThresholdReached()) {
         if (!isTimerStarted()) {
@@ -70,6 +64,12 @@ void HangarTask::droneOutside() {
     if (isTimerDone(T2)) {
         resetTimer();
         Context::setHangarState(DRONE_INSIDE);
+    }
+}
+
+void HangarTask::droneOutside() {
+    if (Context::isRequestedDoorOpening() && presenceSensor->isDetected()) {
+        Context::setHangarState(DRONE_LANDING);
     }
 }
 
