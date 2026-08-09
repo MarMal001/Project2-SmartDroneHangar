@@ -216,7 +216,7 @@ class DroneRemoteUnitView extends JFrame implements ActionListener {
 			hangarBadge.setValue(hangarState, colorForHangarState(hangarState));
 			alarmBanner.setVisible(Protocol.HANGAR_ALARM.equals(hangarState));
 
-			if (Protocol.DRONE_LANDING.equals(droneState)) {
+			if (Protocol.DRONE_LANDING.equals(droneState) || Protocol.DRONE_TAKEOFF.equals(droneState)) {
 				distanceValue.setText(String.valueOf(distance));
 			} else {
 				distanceValue.setText("--");
