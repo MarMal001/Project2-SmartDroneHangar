@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.23)  8 AUG 2026 19:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.23)  9 AUG 2026 15:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -324,11 +324,7 @@ Language: italian 2026/01/13 v.1.5.02 Italian support for the babel system
 end-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count311
-) (documentation.aux
-
-LaTeX Warning: Label `fig:alarm' multiply defined.
-
-)
+) (documentation.aux)
 \openout1 = `documentation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -483,17 +479,13 @@ Package pdftex.def Info: images/dru.png  used on input line 135.
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `documentation.out' has not changed.
 (rerunfilecheck)             Checksum: 4C219BC4B8912EFDBBC808FDDAA84BCA;1597.
  ) 
 Here is how much of TeX's memory you used:
  10051 strings out of 467870
  162027 string characters out of 5414967
- 584666 words of memory out of 5000000
+ 584682 words of memory out of 5000000
  38797 multiletter control sequences out of 15000+600000
  633525 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -503,7 +495,7 @@ Here is how much of TeX's memory you used:
 /public/amsfonts/cm/cmbx12.pfb><C:/Users/S512FJEJ021T/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/S512FJEJ021T/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on documentation.pdf (11 pages, 315348 bytes).
+Output written on documentation.pdf (11 pages, 314465 bytes).
 PDF statistics:
  158 PDF objects out of 1000 (max. 8388607)
  30 named destinations out of 1000 (max. 500000)
