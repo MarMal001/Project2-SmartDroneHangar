@@ -7,6 +7,7 @@
 \usepackage{longtable}
 \usepackage{array} 
 \usepackage{booktabs}
+\usepackage{tabularx}
 
 \usepackage[italian]{babel}
 
@@ -136,7 +137,84 @@ Rispetto all'implementazione fisica, nel corrente schema si è scelto di inserir
     \caption{Applicazione Drone Remote Unit}
     \label{fig:dru}
 \end{figure}
-
 \section{Comunicazione Arduino-Applicazione}
+
+La comunicazione tra l'Arduino e la DRU avviene su una singola linea seriale a
+\textbf{115200 baud}, con un protocollo testuale a righe: ogni messaggio è una
+stringa che termina con un carattere di nuova riga (\texttt{\textbackslash n}),
+composta da un prefisso a due lettere seguito da \texttt{:} e dal payload. La
+definizione dei prefissi e delle costanti è condivisa
+tra \texttt{Protocol.h} lato Arduino e \texttt{Protocol.java} lato DRU, in modo
+che le due parti non possano disallinearsi.
+
+\subsection{Messaggi Arduino → DRU}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|l|p{3.3cm}|X|}
+\hline
+\textbf{Prefisso} & \textbf{Formato} & \textbf{Descrizione} \\
+\hline
+\texttt{st:} &
+\texttt{st:<droneState>:\linebreak <hangarState>:\linebreak <distanceCm>} &
+Stato corrente, inviato periodicamente ad ogni tick di \texttt{SerialCommTask}. \\
+\hline
+\texttt{al:} &
+\texttt{al:ALARM} &
+Notifica di allarme, inviata una tantum quando l'hangar entra in stato di allarme con il drone fuori dall'hangar. \\
+\hline
+\texttt{lo:} &
+\texttt{lo:<messaggio>} &
+Messaggio diagnostico/di log, mostrato nel pannello di log della DRU (es. rilevamento del drone da parte del PIR). \\
+\hline
+\end{tabularx}
+\caption{Messaggi inviati dall'Arduino alla DRU}
+\end{table}
+
+I campi di \texttt{st:} possono assumere i seguenti valori:
+\begin{itemize}
+    \item \textbf{droneState}: \texttt{REST}, \texttt{TAKEOFF}, \texttt{OUT}, \texttt{LANDING};
+    \item \textbf{hangarState}: \texttt{NORMAL}, \texttt{PREALARM}, \texttt{ALARM};
+    \item \textbf{distanceCm}: distanza misurata dal sonar, in centimetri;
+    vale \texttt{-1} quando non è disponibile una lettura valida (drone non
+    rilevato, oppure fuori dalle fasi di decollo o atterraggio).
+\end{itemize}
+\newpage
+\subsection{Messaggi DRU → Arduino}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|l|p{3.3cm}|X|}
+\hline
+\textbf{Prefisso} & \textbf{Formato} & \textbf{Descrizione} \\
+\hline
+\texttt{cmd:} &
+\texttt{cmd:OPEN} &
+Richiesta di apertura della porta dell'hangar, inviata dalla DRU quando l'operatore simula un comando di decollo o di atterraggio del drone. \\
+\hline
+\end{tabularx}
+\caption{Messaggi inviati dalla DRU all'Arduino}
+\end{table}
+
+Il comando \texttt{cmd:OPEN} è unico per entrambe le fasi: non è la DRU a
+specificare se si tratta di un decollo o di un atterraggio, ma è l'Arduino
+stesso, tramite \texttt{HangarTask}, a interpretarlo in base allo stato
+corrente dell'hangar (drone dentro $\rightarrow$ richiesta di decollo, drone
+fuori $\rightarrow$ richiesta di atterraggio).
+
+\subsection{Implementazione}
+
+Lato Arduino la comunicazione è gestita da \textbf{SerialCommTask}: ad ogni
+tick legge in modo non bloccante i byte disponibili sulla seriale,
+riconosce i comandi completi (terminati da \texttt{\textbackslash n}) e li
+traduce in richieste sul \texttt{Context} condiviso, oltre a inviare
+periodicamente lo stato corrente e, quando necessario, la notifica di
+allarme. Lato DRU, \textbf{SerialCommChannel} incapsula l'accesso alla porta
+seriale (tramite la libreria JSSC) esponendo un'interfaccia a messaggi
+asincrona, mentre \textbf{MonitoringAgent} è il thread che consuma i
+messaggi in arrivo, li instrada in base al prefisso e aggiorna di
+conseguenza l'interfaccia grafica (\texttt{DroneRemoteUnitView}).
 
 \end{document}
