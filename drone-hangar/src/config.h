@@ -27,8 +27,8 @@ constexpr long T3 = 3; // Seconds
 constexpr long T4 = 1; // Seconds
 constexpr float D1 = 0.5; // Meters
 constexpr float D2 = 0.05; // Meters
-constexpr float TEMP1 = 32.0; // Degrees
-constexpr float TEMP2 = 35.0; // Degrees
+constexpr float TEMP1 = 35.0; // Degrees
+constexpr float TEMP2 = 39.0; // Degrees
 
 enum LED {
     ALARM_LED,

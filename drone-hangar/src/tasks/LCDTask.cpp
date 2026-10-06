@@ -12,6 +12,17 @@ void LCDTask::tick() {
     else if (Context::isDroneOutside()) state = "DRONE OUT";
     else if (Context::isDroneLanding()) state = "LANDING";
     else if (Context::isDroneTakingOff()) state = "TAKE OFF";
+
+
+    while (state.length() < 16) {
+        state += ' ';
+    }
+
+    if (state == lastDisplayed) {
+        return; 
+    }
+
     lcd->setCursor(0, 0);
-    lcd->println(state);
+    lcd->print(state);
+    lastDisplayed = state;
 }

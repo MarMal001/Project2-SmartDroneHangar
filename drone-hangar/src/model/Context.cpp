@@ -44,14 +44,6 @@ bool Context::isAlarmOn() {
     return getInstance().alarmState == ALARM;
 }
 
-bool Context::isDroneDetected() {
-    return getInstance().droneDetected;
-}
-
-void Context::setDroneDetected(bool detected) {
-    getInstance().droneDetected = detected;
-}
-
 float Context::getDistanceFromDrone() {
     return getInstance().distanceFromDrone;
 }
@@ -87,6 +79,6 @@ Context& Context::getInstance() {
 }
 
 Context::Context()
-    : hangarState(DRONE_INSIDE), alarmState(NO_ALARM), distanceFromDrone(0.0), droneDetected(false), hangarDoorOpen(false), requestHangarDoorOpening(false)
+    : hangarState(DRONE_INSIDE), alarmState(NO_ALARM), distanceFromDrone(0.0), hangarDoorOpen(false), requestHangarDoorOpening(false)
 {
 }
