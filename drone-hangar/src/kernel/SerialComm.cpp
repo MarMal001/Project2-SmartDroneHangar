@@ -2,8 +2,6 @@
 #include "Logger.h"
 #include "Protocol.h"
 
-SerialCommService SerialCommService::instance;
-
 SerialCommService::SerialCommService()
 {
     inputBuffer = "";
@@ -18,13 +16,12 @@ void SerialCommService::poll()
         char c = (char)Serial.read();
         if (c == '\n')
         {
-
-            processMessage(instance.inputBuffer);
-            instance.inputBuffer = "";
+            processMessage(getInstance().inputBuffer);
+            getInstance().inputBuffer = "";
         }
         else if (c != '\r')
         {
-            instance.inputBuffer += c;
+            getInstance().inputBuffer += c;
         }
     }
 }
@@ -33,7 +30,7 @@ void SerialCommService::processMessage(const String &msg)
 {
     if (msg == CMD_OPEN)
     {
-        instance.openCommandPending = true;
+        getInstance().openCommandPending = true;
     }
     else if (msg.length() > 0)
     {
@@ -43,12 +40,12 @@ void SerialCommService::processMessage(const String &msg)
 
 bool SerialCommService::isOpenCommandPending()
 {
-    return instance.openCommandPending;
+    return getInstance().openCommandPending;
 }
 
 void SerialCommService::consumeOpenCommand()
 {
-    instance.openCommandPending = false;
+    getInstance().openCommandPending = false;
 }
 
 void SerialCommService::sendState(const String &droneState, const String &hangarState, int distanceCm)
@@ -71,4 +68,9 @@ void SerialCommService::sendPreAlarm()
 {
     Serial.print(ALARM_PREFIX);
     Serial.println(MSG_HANGAR_PREALARM);
+}
+
+SerialCommService& SerialCommService::getInstance() {
+    static SerialCommService instance;
+    return instance;
 }

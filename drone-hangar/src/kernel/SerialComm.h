@@ -25,7 +25,7 @@ public:
     // Invia "al:PREALARM"
     static void sendPreAlarm();
 
-    static SerialCommService getInstance();
+    static SerialCommService& getInstance();
 
 private:
     static void processMessage(const String& msg);
@@ -33,8 +33,6 @@ private:
     SerialCommService();
 
 private:
-    static SerialCommService instance;
-
     String inputBuffer;
     bool openCommandPending;
 };
