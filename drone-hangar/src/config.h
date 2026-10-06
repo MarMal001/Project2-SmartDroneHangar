@@ -3,6 +3,14 @@
 
 #include <Arduino.h>
 
+#define DEBUG
+
+# ifdef DEBUG
+#  define DEBUG_CALL(x) x
+# else
+#  define DEBUG_CALL(x)
+# endif
+
 constexpr int PIR_PIN        = 2;
 constexpr int SONAR_ECHO_PIN = 3;
 constexpr int SONAR_TRIG_PIN = 4;
