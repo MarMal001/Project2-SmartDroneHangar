@@ -2,10 +2,12 @@
 #include "Logger.h"
 #include "Protocol.h"
 
+constexpr int BUFFER_SIZE = 32;
+
 SerialCommService::SerialCommService()
 {
     inputBuffer = "";
-    inputBuffer.reserve(32);
+    inputBuffer.reserve(BUFFER_SIZE);
     openCommandPending = false;
 }
 
