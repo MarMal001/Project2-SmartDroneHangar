@@ -1,4 +1,5 @@
 #include "SerialCommTask.h"
+#include "devices/Sonar.h"
 #include "kernel/SerialComm.h"
 #include "kernel/Protocol.h"
 #include "model/Context.h"
@@ -29,7 +30,7 @@ void SerialCommTask::sendCurrentState()
 {
     float distanceM = Context::getDistanceFromDrone();
 
-    int distanceCm = (distanceM < 0) ? -1 : (int)(distanceM * 100.0f + 0.5f); // +0.5 per arrotondare
+    int distanceCm = (distanceM < 0) ? NO_OBJ_DETECTED : (int)(distanceM * 100.0f + 0.5f); // +0.5 per arrotondare
     SerialCommService::sendState(droneStateToString(), hangarStateToString(), distanceCm);
 }
 

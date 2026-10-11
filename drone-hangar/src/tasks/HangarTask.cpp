@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include "devices/PresenceSensor.h"
 #include "devices/ProximitySensor.h"
+#include "devices/Sonar.h"
 #include "kernel/Logger.h"
 #include "model/Context.h"
 #include "config.h"
@@ -32,7 +33,7 @@ void HangarTask::tick() {
 
 void HangarTask::droneInside() {
     light->switchOn();
-    Context::setDistanceFromDrone(-1); // drone dentro: nessuna distanza valida da mostrare
+    Context::setDistanceFromDrone(NO_OBJ_DETECTED); // drone dentro: nessuna distanza valida da mostrare
     if (Context::isRequestedDoorOpening()) {
         Context::setHangarState(DRONE_TAKE_OFF);
         light->switchOff();
