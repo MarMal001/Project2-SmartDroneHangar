@@ -12,6 +12,7 @@ void SerialCommTask::tick()
 {
     handleIncomingCommands();
     sendCurrentState();
+    handleOutgoingPreAlarm();
     handleOutgoingAlarm();
 }
 

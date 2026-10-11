@@ -12,8 +12,11 @@ public class SerialCommChannel implements CommChannel, SerialPortEventListener {
 	private BlockingQueue<String> queue;
 	private StringBuffer currentMsg = new StringBuffer("");
 
+	private final int CAPACITY = 100;
+	private final long SLEEP_TIME = 1800;
+
 	public SerialCommChannel(String port, int rate) throws Exception {
-		queue = new ArrayBlockingQueue<String>(100);
+		queue = new ArrayBlockingQueue<String>(CAPACITY);
 
 		serialPort = new SerialPort(port);
 		serialPort.openPort();
@@ -30,7 +33,7 @@ public class SerialCommChannel implements CommChannel, SerialPortEventListener {
 		 * arrivano un po' di byte di rumore sulla linea:
 		 * aspetto che il reset finisca e li scarto prima di ascoltare.
 		 */
-		Thread.sleep(1800);
+		Thread.sleep(SLEEP_TIME);
 		serialPort.purgePort(SerialPort.PURGE_RXCLEAR | SerialPort.PURGE_TXCLEAR);
 
 		serialPort.addEventListener(this);

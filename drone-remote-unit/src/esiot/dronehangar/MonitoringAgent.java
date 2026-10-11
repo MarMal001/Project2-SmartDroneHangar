@@ -9,6 +9,9 @@ public class MonitoringAgent extends Thread {
 
 	private final SerialCommChannel channel;
 	private final DroneRemoteUnitView view;
+	
+	private final long LOG_TIME = 2000; 
+	private final int N_FORMAT_ELEMENTS = 3;
 
 	private long lastStateLog = 0;
 
@@ -24,9 +27,9 @@ public class MonitoringAgent extends Thread {
 				String msg = channel.receiveMsg();
 
 				if (msg.startsWith(Protocol.STATE_PREFIX)) {
-					// log di debug, ma non ad ogni messaggio (arrivano ogni 500ms)
+					// log di debug, ma non ad ogni messaggio inviato dall'Arduino (arrivano ogni 50ms)
 					long now = System.currentTimeMillis();
-					if (now - lastStateLog > 2000) {
+					if (now - lastStateLog > LOG_TIME) {
 						lastStateLog = now;
 						view.log("RX: " + msg);
 					}
@@ -50,7 +53,7 @@ public class MonitoringAgent extends Thread {
 	private void handleState(String payload) {
 		// formato atteso: <droneState>:<hangarState>:<distanceMm>
 		String[] parts = payload.split(":");
-		if (parts.length < 3) {
+		if (parts.length < N_FORMAT_ELEMENTS) {
 			view.log("Messaggio di stato malformato: " + payload);
 			return;
 		}
