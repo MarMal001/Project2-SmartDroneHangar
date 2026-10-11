@@ -16,7 +16,7 @@ void wakeUp() {}
 
 HWPlatform::HWPlatform() {
 	pButton = new ButtonImpl(BT_PIN);
-	pLcd = new LiquidCrystal_I2C(0x27, 16, 2);
+	pLcd = new LiquidCrystal_I2C(LCD_ADDRESS, LCD_COLUMNS, LCD_ROWS);
 	pLcd->init();
 	pLcd->backlight();
 	pMotor = new ServoMotorImpl(MOTOR_PIN);
