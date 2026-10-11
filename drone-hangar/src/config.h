@@ -30,6 +30,10 @@ constexpr float D2 = 0.05; // Meters
 constexpr float TEMP1 = 35.0; // Degrees
 constexpr float TEMP2 = 39.0; // Degrees
 
+constexpr int LCD_COLUMNS = 16;
+constexpr int LCD_ROWS = 2;
+constexpr int LCD_ADDRESS = 0x27;
+
 enum LED {
     ALARM_LED,
     G_LED1,

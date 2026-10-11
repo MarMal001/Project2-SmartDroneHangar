@@ -1,5 +1,6 @@
 #include "tasks/LCDTask.h"
 #include <Arduino.h>
+#include "config.h"
 #include "model/Context.h"
 
 LCDTask::LCDTask(LiquidCrystal_I2C* lcd) : lcd(lcd) {
@@ -14,7 +15,7 @@ void LCDTask::tick() {
     else if (Context::isDroneTakingOff()) state = "TAKE OFF";
 
 
-    while (state.length() < 16) {
+    while (state.length() < LCD_COLUMNS) {
         state += ' ';
     }
 
