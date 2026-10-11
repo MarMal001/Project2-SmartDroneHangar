@@ -18,7 +18,6 @@ private:
     void preAlarmOn();
     void alarmOn();
 
-    void startTimerAtThresholdReached();
     bool isPreAlarmTemperatureThresholdReached();
     bool isAlarmTemperatureThresholdReached();
     bool isTimerStarted();

@@ -57,8 +57,6 @@ void AlarmTask::alarmOn() {
     }
 }
 
-void AlarmTask::startTimerAtThresholdReached() {
-}
 
 bool AlarmTask::isPreAlarmTemperatureThresholdReached() {
     float temperature = tempSensor->getTemperature();
