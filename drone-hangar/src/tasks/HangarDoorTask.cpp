@@ -8,7 +8,7 @@ constexpr int MIN_ANGLE_MOTOR = 0;
 constexpr int COMPLETE_MOVEMENT_TIME = 2000; // Milliseconds
 
 HangarDoorTask::HangarDoorTask(ServoMotor* servoMotor) : servoMotor(servoMotor) {
-    state = OPEN;
+    state = CLOSED;
     startMovementTs = 0;
     currentPos = 0;
     servoMotor->on();
