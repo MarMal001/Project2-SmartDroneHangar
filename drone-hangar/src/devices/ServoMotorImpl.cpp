@@ -1,27 +1,23 @@
 #include "ServoMotorImpl.h"
 #include <Arduino.h>
 
+constexpr int MAX_ANGLE = 180;
+// valori adattati al motore utilizzato
+constexpr int MIN = 500;
+constexpr int MAX = 2400;
+constexpr float COEFF = (MAX - MIN) / (float)MAX_ANGLE;
+
 ServoMotorImpl::ServoMotorImpl(int pin) {
     this->pin = pin;
     _on = false;
 }
 
 void ServoMotorImpl::on() {
-    // updated values: min is 544, max 2400 (see ServoTimer2 doc)
-    motor.attach(pin); //, 544, 2400);
+    motor.attach(pin);
     _on = true;
 }
 
 bool ServoMotorImpl::isOn() { return _on; }
-
-constexpr int MAX_ANGLE = 180;
-// 750 -> 0, 2250 -> 180
-// 750 + angle*(2250-750)/180
-// updated values: min is 544, max 2400 (see ServoTimer2 doc)
-// adapted values to MicroServo SG90
-constexpr int min = 500;
-constexpr int max = 2400;
-constexpr float coeff = (max - min) / (float)MAX_ANGLE;
 
 void ServoMotorImpl::setPosition(int angle) {
     if (angle > MAX_ANGLE) {
@@ -29,11 +25,11 @@ void ServoMotorImpl::setPosition(int angle) {
     } else if (angle < 0) {
         angle = 0;
     }
-    motor.write(min + angle * coeff);
+    motor.write(MIN + angle * COEFF);
 }
 
 int ServoMotorImpl::getPosition() {
-    return (motor.read() - min) / coeff;
+    return (motor.read() - MIN) / COEFF;
 }
 
 void ServoMotorImpl::off() {
