@@ -71,7 +71,7 @@ void HangarTask::droneLanding() {
 }
 
 void HangarTask::droneOutside() {
-    Context::setDistanceFromDrone(-1); // drone fuori: nessuna distanza valida da mostrare
+    Context::setDistanceFromDrone(NO_OBJ_DETECTED); // drone fuori: nessuna distanza valida da mostrare
     if (Context::isRequestedDoorOpening() && presenceSensor->isDetected()) {
         LoggerService::log("PIR: drone rilevato, avvio atterraggio");
         Context::setHangarState(DRONE_LANDING);
