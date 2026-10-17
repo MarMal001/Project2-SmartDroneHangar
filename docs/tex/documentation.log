@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.23)  9 AUG 2026 15:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.23)  17 OCT 2026 12:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -269,11 +269,22 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count305
 \@thisrulewidth=\dimen170
 )
+(C:\Users\S512FJEJ021T\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.s
+ty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen171
+\TX@old@table=\dimen172
+\TX@old@col=\dimen173
+\TX@target=\dimen174
+\TX@delta=\dimen175
+\TX@cols=\count306
+\TX@ftn=\toks24
+)
 (C:\Users\S512FJEJ021T\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.st
 y
 Package: babel 2025/12/11 v25.17 The multilingual framework for LuaLaTeX, pdfLa
 TeX and XeLaTeX
-\babel@savecnt=\count306
+\babel@savecnt=\count307
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
 ne 2068.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
@@ -288,13 +299,13 @@ LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?)
 on input line 2076.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
 on input line 2101.
-\U@D=\dimen171
+\U@D=\dimen176
 \l@unhyphenated=\language79
 
 (C:\Users\S512FJEJ021T\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel
 .def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count307
+\bbl@dirlevel=\count308
 Package babel Info: Configuration files are deprecated, as
 (babel)             they can break document portability.
 (babel)             Reported on input line 4196.
@@ -316,50 +327,50 @@ Package babel Info: Importing font and identification data for italian
 (C:\Users\S512FJEJ021T\AppData\Local\Programs\MiKTeX\tex/latex/babel-italian\it
 alian.ldf
 Language: italian 2026/01/13 v.1.5.02 Italian support for the babel system
-\it@lettering=\count308
-\it@doublequoteactive=\count309
-\it@ISOcompliance=\count310
+\it@lettering=\count309
+\it@doublequoteactive=\count310
+\it@ISOcompliance=\count311
 ))
 (C:\Users\S512FJEJ021T\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3back
 end-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count311
+\l__color_backend_stack_int=\count312
 ) (documentation.aux)
 \openout1 = `documentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 (C:\Users\S512FJEJ021T\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp
 -pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count312
-\scratchdimen=\dimen172
+\scratchcounter=\count313
+\scratchdimen=\dimen177
 \scratchbox=\box62
-\nofMPsegments=\count313
-\nofMParguments=\count314
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count315
-\MPscratchDim=\dimen173
-\MPnumerator=\count316
-\makeMPintoPDFobject=\count317
-\everyMPtoPDFconversion=\toks25
+\nofMPsegments=\count314
+\nofMParguments=\count315
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count316
+\MPscratchDim=\dimen178
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
+\everyMPtoPDFconversion=\toks26
 )
 (C:\Users\S512FJEJ021T\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\eps
 topdf-base.sty
@@ -380,13 +391,13 @@ G,.JBIG2,.JB2,.eps]
 f-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 22.
+Package hyperref Info: Link coloring OFF on input line 23.
  (documentation.out) (documentation.out)
 \@outlinefile=\write3
 \openout3 = `documentation.out'.
 
-LaTeX Info: Redefining \it@ocap on input line 22.
-LaTeX Info: Redefining \it@ccap on input line 22.
+LaTeX Info: Redefining \it@ocap on input line 23.
+LaTeX Info: Redefining \it@ccap on input line 23.
 
 
 File italian.ldf warning: 
@@ -394,12 +405,12 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting
-italian.ldf    on input line 22.
+italian.ldf    on input line 23.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 25.
+(Font)              <14.4> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 25.
+(Font)              <7> on input line 26.
 [1
 
 {C:/Users/S512FJEJ021T/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
@@ -419,7 +430,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.30 \chapter
+l.31 \chapter
              {Introduzione} [1
 
 ]
@@ -432,72 +443,101 @@ Capitolo 2.
 
 ]
 Capitolo 3.
-<images/hangar.png, id=88, 821.0675pt x 435.6275pt>
+<images/hangar.png, id=98, 821.0675pt x 435.6275pt>
 File: images/hangar.png Graphic file (type png)
 <use images/hangar.png>
-Package pdftex.def Info: images/hangar.png  used on input line 90.
+Package pdftex.def Info: images/hangar.png  used on input line 91.
 (pdftex.def)             Requested size: 390.0pt x 206.91856pt.
-<images/hangar_door.png, id=90, 790.955pt x 400.49625pt>
+<images/hangar_door.png, id=100, 790.955pt x 400.49625pt>
 File: images/hangar_door.png Graphic file (type png)
 <use images/hangar_door.png>
-Package pdftex.def Info: images/hangar_door.png  used on input line 97.
+Package pdftex.def Info: images/hangar_door.png  used on input line 98.
 (pdftex.def)             Requested size: 390.0pt x 197.4732pt.
 [5
 
  <./images/hangar.png>]
-<images/alarm.png, id=97, 821.0675pt x 275.0275pt>
+<images/alarm.png, id=107, 821.0675pt x 275.0275pt>
 File: images/alarm.png Graphic file (type png)
 <use images/alarm.png>
-Package pdftex.def Info: images/alarm.png  used on input line 105.
+Package pdftex.def Info: images/alarm.png  used on input line 106.
 (pdftex.def)             Requested size: 390.0pt x 130.63522pt.
-<images/blinking.png, id=98, 841.1425pt x 334.24875pt>
+<images/blinking.png, id=108, 841.1425pt x 334.24875pt>
 File: images/blinking.png Graphic file (type png)
 <use images/blinking.png>
-Package pdftex.def Info: images/blinking.png  used on input line 112.
+Package pdftex.def Info: images/blinking.png  used on input line 113.
 (pdftex.def)             Requested size: 390.0pt x 154.97523pt.
  [6 <./images/hangar_door.png> <./images/alarm.png>]
 [7 <./images/blinking.png>]
 Capitolo 4.
-<images/circuit.png, id=114, 1266.23062pt x 837.88031pt>
+<images/circuit.png, id=124, 1266.23062pt x 837.88031pt>
 File: images/circuit.png Graphic file (type png)
 <use images/circuit.png>
-Package pdftex.def Info: images/circuit.png  used on input line 123.
+Package pdftex.def Info: images/circuit.png  used on input line 124.
 (pdftex.def)             Requested size: 390.0pt x 258.06537pt.
 [8
 
  <./images/circuit.png>]
 Capitolo 5.
-<images/dru.png, id=121, 564.60938pt x 453.94594pt>
+<images/dru.png, id=131, 564.60938pt x 453.94594pt>
 File: images/dru.png Graphic file (type png)
 <use images/dru.png>
-Package pdftex.def Info: images/dru.png  used on input line 135.
+Package pdftex.def Info: images/dru.png  used on input line 136.
 (pdftex.def)             Requested size: 390.0pt x 313.56244pt.
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
+144.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 144.
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbackslash' on input line 144.
+
 [9
 
- <./images/dru.png>] [10] (documentation.aux)
+ <./images/dru.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
+[]|\OT1/cmtt/m/n/10.95 st:<droneState>:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
+\OT1/cmtt/m/n/10.95 <hangarState>:
+ []
+
+[10] [11] (documentation.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `documentation.out' has not changed.
-(rerunfilecheck)             Checksum: 4C219BC4B8912EFDBBC808FDDAA84BCA;1597.
+(rerunfilecheck)             Checksum: 5566221626E4060273DE8354074DF40C;2012.
  ) 
 Here is how much of TeX's memory you used:
- 10051 strings out of 467870
- 162027 string characters out of 5414967
- 584682 words of memory out of 5000000
- 38797 multiletter control sequences out of 15000+600000
- 633525 words of font info for 59 fonts, out of 8000000 for 9000
+ 10142 strings out of 467870
+ 163476 string characters out of 5414967
+ 587833 words of memory out of 5000000
+ 38876 multiletter control sequences out of 15000+600000
+ 635734 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,454b,475s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,454b,475s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\S512FJEJ021T\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi6
-00\tcrm1200.pk><C:/Users/S512FJEJ021T/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmbx12.pfb><C:/Users/S512FJEJ021T/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/S512FJEJ021T/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on documentation.pdf (11 pages, 314465 bytes).
+00\tcbx1440.pk> <C:\Users\S512FJEJ021T\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\tcrm1200.pk><C:/Users/S512FJEJ021T/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/S512FJEJ021T/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/S512FJEJ0
+21T/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
+Users/S512FJEJ021T/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr12.pfb><C:/Users/S512FJEJ021T/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr17.pfb><C:/Users/S512FJEJ021T/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/S512FJEJ021T/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/S512FJEJ021
+T/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on documentation.pdf (12 pages, 387114 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 30 named destinations out of 1000 (max. 500000)
- 127 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
 
