@@ -21,16 +21,3 @@ java -cp "bin:lib/jssc-2.9.4.jar" esiot.dronehangar.DroneRemoteUnitLauncher /dev
 
 Se non si passa nessun argomento viene usato il default definito in
 `DroneRemoteUnitLauncher.java` (`/dev/ttyUSB0`), da modificatelo se lo conosci.
-
-## Test
-
-Comportamento atteso durante il test:
-- ogni 500 ms l'Arduino invia lo stato corrente (`st:...`);
-- premendo "Take Off" nel DRU il drone passa a TAKEOFF poi a OUT dopo
-  ~3 second;
-- premendo "Land" quando e' OUT, passa a LANDING con distanza che
-  scende verso 0, poi torna REST;
-- la temperatura simulata sale e scende in un ciclo di 40 secondi:
-  si potra' osservare il passaggio a PRE-ALARM e poi ad ALARM (con
-  popup nel DRU), seguito da un reset automatico "simulato" dopo 5
-  secondi, forse l'ho messo a 10 (al posto della pressione del pulsante RESET fisico).
