@@ -1,3 +1,10 @@
+/*
+ * AUTORI:
+ * Martina Malagoli
+ * Davide Mancini
+ * Filippo Ricciotti
+*/
+
 #include "config.h"
 #include "kernel/Logger.h"
 #include "kernel/Protocol.h"

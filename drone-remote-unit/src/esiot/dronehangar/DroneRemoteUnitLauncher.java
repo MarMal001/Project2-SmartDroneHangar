@@ -1,3 +1,10 @@
+/*
+ * AUTORI:
+ * Martina Malagoli
+ * Davide Mancini
+ * Filippo Ricciotti
+*/
+
 package esiot.dronehangar;
 
 /**
