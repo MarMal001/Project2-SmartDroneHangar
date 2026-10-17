@@ -10,7 +10,7 @@ BlinkingTask::BlinkingTask(Light* pLight):
 void BlinkingTask::tick(){
     switch (state){   
         case IDLE: {
-            if (this->checkAndSetJustEntered()){
+            if (checkAndSetJustEntered()){
                 pLight->switchOff();
             }
             if (Context::isDroneTakingOff() || Context::isDroneLanding()){
@@ -19,7 +19,7 @@ void BlinkingTask::tick(){
             break;
         }
         case OFF: {
-            if (this->checkAndSetJustEntered()){
+            if (checkAndSetJustEntered()){
                 pLight->switchOff();
             }
             if (Context::isDroneOutside() || Context::isDroneInside()){
@@ -30,7 +30,7 @@ void BlinkingTask::tick(){
             break;
         }
         case ON: {
-            if (this->checkAndSetJustEntered()){
+            if (checkAndSetJustEntered()){
                 pLight->switchOn();
             }
             if (Context::isDroneOutside() || Context::isDroneInside()){
